@@ -16,11 +16,13 @@ return require('packer').startup(function(use)
     -- Quality of life packages
     use 'preservim/nerdcommenter'
     use 'jiangmiao/auto-pairs'
-    use 'airblade/vim-gitgutter'
+    use ({
+        'airblade/vim-gitgutter', as = 'gitgutter'
+    })
     use 'tpope/vim-surround'
 
     use {
-        'nvim-lualine/lualine.nvim',
+        'nvim-lualine/lualine.nvim', as = 'lualine',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     }
 
@@ -33,9 +35,9 @@ return require('packer').startup(function(use)
         end
     })
     use ({
-        'nordtheme/vim', as = "nord",
+        'catppuccin/nvim', as = "catppuccin",
         config = function()
-            vim.cmd('colorscheme nord')
+            vim.cmd('colorscheme catppuccin')
         end
     })
 	use {
